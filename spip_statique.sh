@@ -1,13 +1,33 @@
 #!/bin/sh
 
 # usage :
-# ./spip_statique.sh http://localhost/mon_site/
-# attention pete sans / final
+# Brut ./spip_statique.sh http://localhost/mon_site/
+# spip_statique http://localhost/mon_site/
+# spip_statique http://localhost/mon_site/ dans/un/repertoire
+# attention pete sans / final TODO
 
+source="$1"
+dest="${2:-}"
+
+# Eventuel repertoire cible en second parametre
+if [[ $dest != "" ]] ; then
+	echo "$source > $dest"
+	if [ ! -d "$dest" ] 
+		then
+			echo "\nErreur : créer un répertoire \`$dest\`. mkdir -p $dest ; ls\n"
+			ls
+			echo ""
+			exit
+		else
+			cd "$dest"
+	fi
+fi
+
+# Fichier log pour les transformations des pages.
 [ -f aspilog.txt ] && rm aspilog.txt
 
 # aspirer les pages
-wget -r -l2 -np -N -p "$1"
+wget -r -l2 -np -N -p "$source"
 
 # ou sommes nous ?
 racine=$(echo ${1%/*} | sed -e 's,http://,,g' )

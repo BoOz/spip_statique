@@ -13,6 +13,12 @@ spip_statique http://localhost/mon_site/
 ```
 Le site http://localhost/mon_site/ est copié en HTML dans ~/Sites/mon_site.
 
+Usage alternatif :
+```
+spip_statique http://localhost/mon_site/ repertoire_cible
+```
+
+
 ## Installation
 Installer `spip_statique` la première fois.
 ```
