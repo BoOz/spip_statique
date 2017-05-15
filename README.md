@@ -8,7 +8,7 @@ Choisir un répertoire, par exemple `~/scripts`, et s'y rendre via le terminal :
 ```
 cd ~/scripts
 ```
-puis installer `spip_statique`:
+puis installer `spip_statique` :
 
 ```
 git clone https://github.com/BoOz/spip_statique.git
@@ -18,7 +18,7 @@ chmod +x spip_statique.sh
 
 **usage**
 
-Se rendre dans un répertoire : exemple `cd ~/Sites/monsite` et lancer la commande :
+Se rendre dans un répertoire : exemple `cd ~/Sites/mon_site` et lancer la commande :
 ```
 ~/scripts/spip_statique.sh http://localhost/mon_site/
 ```
