@@ -1,5 +1,5 @@
 # spip_statique
-Transformer un site SPIP en site statique (HTML / CSS / JS).
+Transformer un site SPIP en site statique (HTML/CSS/JS).
 
 ## Usage
 
