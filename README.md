@@ -35,9 +35,9 @@ taper `i` puis ajouter la ligne
 ```
 alias spip_statique="~/scripts/spip_statique/spip_statique.sh"
 ```
-taper `esc` puis `:wq` et valider.
+taper `esc` puis `:wq` et valider puis relancer le terminal.
 
-ensuite appeler la commande :
+**usage simplifié**
 
 ```
 spip_statique http://localhost/mon_site/
