@@ -28,26 +28,23 @@ git clone https://github.com/BoOz/spip_statique.git
 cd spip_statique
 chmod +x spip_statique.sh
 ```
-
 Et valider
 
-### Un alias dans le terminal
-
-Le script `spip_statique.sh` fonctionne
+Le script `spip_statique.sh` fonctionne.
 ```
 ~/scripts/spip_statique/spip_statique.sh http://localhost/mon_site/
 ```
-Ajouter un alias dans `~/.bash_profile`.
 
+### Un alias dans le terminal
+Ajouter un alias dans `~/.bash_profile`.
 ```
 vim ~/.bash_profile
 ```
 Taper `i` puis ajouter la ligne
-
 ```
 alias spip_statique="~/scripts/spip_statique/spip_statique.sh"
 ```
-Taper `esc` puis `:wq` et valider
+Taper `esc` puis `:wq` et valider.
 
 Relancer le terminal
 ```
