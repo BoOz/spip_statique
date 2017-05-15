@@ -4,7 +4,7 @@ Transformer un site SPIP en site statique.
 spip_statique http://localhost/mon_site/
 ```
 
-**Usage**
+## Usage
 
 Choisir un répertoire dans lequel copier un site en html. 
 ```
@@ -16,7 +16,7 @@ spip_statique http://localhost/mon_site/
 ```
 Le site http://localhost/mon_site/ est copié en HTML dans ~/Sites/mon_site
 
-**Installation**
+## Installation
 
 installer `spip_statique` dans le terminal
 ```
@@ -31,7 +31,7 @@ chmod +x spip_statique.sh
 
 Et valider
 
-**Un alias dans le terminal**
+### Un alias dans le terminal
 
 Le script `spip_statique.sh` fonctionne
 ```
@@ -53,10 +53,3 @@ Relancer le terminal
 ```
 . ~/.bash_profile
 ```
-
-**Usage**
-
-```
-spip_statique http://localhost/mon_site/
-```
-
