@@ -14,17 +14,17 @@ spip_statique http://localhost/mon_site/
 Le site http://localhost/mon_site/ est copié en HTML dans ~/Sites/mon_site.
 
 ## Installation
-Installer `spip_statique` dans le terminal
+Installer `spip_statique` la première fois.
 ```
 cd ~/scripts
 ```
-Copier-coller
+Copier dans le terminal
 ```
 git clone https://github.com/BoOz/spip_statique.git
 cd spip_statique
 chmod +x spip_statique.sh
 ```
-Et valider
+et valider.
 
 Le script `spip_statique.sh` fonctionne.
 ```
@@ -36,13 +36,13 @@ Ajouter un alias dans `~/.bash_profile`.
 ```
 vim ~/.bash_profile
 ```
-Taper `i` puis ajouter la ligne
+Taper `i` puis ajouter
 ```
 alias spip_statique="~/scripts/spip_statique/spip_statique.sh"
 ```
 Taper `esc` puis `:wq` et valider.
 
-Relancer le terminal
+Relancer le terminal.
 ```
 . ~/.bash_profile
 ```
