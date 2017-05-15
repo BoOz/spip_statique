@@ -1,20 +1,24 @@
 # spip_statique
 Transformer un site SPIP en site statique.
-`spip_statique http://localhost/mon_site/`
+```
+spip_statique http://localhost/mon_site/
+```
 
 **Usage**
 
 Choisir un répertoire dans lequel copier un site en html. 
-Exemple `cd ~/Sites/mon_site`
-
-Lancer `spip_statique` :
 ```
-~/scripts/spip_statique/spip_statique.sh http://localhost/mon_site/
+cd ~/Sites/mon_site
 ```
+Lancer `spip_statique`
+```
+spip_statique http://localhost/mon_site/
+```
+Le site http://localhost/mon_site/ est copié en HTML dans ~/Sites/mon_site
 
 **Installation**
 
-Dans le terminal la première fois, installer `spip_statique`.
+installer `spip_statique` dans le terminal
 ```
 cd ~/scripts
 ```
@@ -29,7 +33,11 @@ Et valider
 
 **Un alias dans le terminal**
 
-Pour simplifier l'appel à `spip_statique`, on peut ajouter un alias dans `~/.bash_profile`.
+Le script `spip_statique.sh` fonctionne
+```
+~/scripts/spip_statique/spip_statique.sh http://localhost/mon_site/
+```
+Ajouter un alias dans `~/.bash_profile`.
 
 ```
 vim ~/.bash_profile
@@ -39,13 +47,14 @@ Taper `i` puis ajouter la ligne
 ```
 alias spip_statique="~/scripts/spip_statique/spip_statique.sh"
 ```
-taper `esc` puis `:wq`, valider puis relancer le terminal
+Taper `esc` puis `:wq` et valider
+
+Relancer le terminal
 ```
 . ~/.bash_profile
 ```
 
-
-**Usage simplifié**
+**Usage**
 
 ```
 spip_statique http://localhost/mon_site/
