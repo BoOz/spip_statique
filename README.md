@@ -18,7 +18,7 @@ chmod +x spip_statique.sh
 
 **usage**
 
-Se rendre dans un répertoire : exemple `cd ~/Sites/mon_site` et lancer la commande :
+Se rendre dans un répertoire dans lequel on souhaite copier un site, exemple `cd ~/Sites/mon_site`, et lancer la commande :
 ```
 ~/scripts/spip_statique.sh http://localhost/mon_site/
 ```
