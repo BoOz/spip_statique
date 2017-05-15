@@ -1,24 +1,20 @@
 # spip_statique
-Transformer un site SPIP en site statique.
-```
-spip_statique http://localhost/mon_site/
-```
+Transformer un site SPIP en site statique (html/css/js).
 
 ## Usage
 
-Choisir un répertoire dans lequel copier un site en html. 
+Choisir dans le terminal un répertoire où copier un site. 
 ```
 cd ~/Sites/mon_site
 ```
-Lancer `spip_statique`
+Lancer `spip_statique`.
 ```
 spip_statique http://localhost/mon_site/
 ```
-Le site http://localhost/mon_site/ est copié en HTML dans ~/Sites/mon_site
+Le site http://localhost/mon_site/ est copié en HTML dans ~/Sites/mon_site.
 
 ## Installation
-
-installer `spip_statique` dans le terminal
+Installer `spip_statique` dans le terminal
 ```
 cd ~/scripts
 ```
