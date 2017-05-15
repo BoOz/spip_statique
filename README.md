@@ -56,3 +56,4 @@ Relancer le terminal
 cd la/ou/est/spip_statique
 git pull
 ```
+
