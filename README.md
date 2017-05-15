@@ -50,3 +50,9 @@ Relancer le terminal
 ```
 . ~/.bash_profile
 ```
+
+# Mise à jour
+```
+cd la/ou/est/spip_statique
+git pull
+```
