@@ -22,3 +22,24 @@ Se rendre dans un répertoire dans lequel on souhaite copier un site, exemple `c
 ```
 ~/scripts/spip_statique/spip_statique.sh http://localhost/mon_site/
 ```
+
+**un alias dans le terminal**
+
+Pour simplifier l'appel à spip_statique, on peut ajouter un alias dans `~/.bash_profile`.
+
+```
+vim ~/.bash_profile
+```
+taper `i` puis ajouter la ligne
+
+```
+alias spip_statique="~/scripts/spip_statique/spip_statique.sh"
+```
+taper `esc` puis `:wq` et valider.
+
+ensuite appeler la commande :
+
+```
+spip_statique http://localhost/mon_site/
+```
+
