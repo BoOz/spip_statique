@@ -27,6 +27,8 @@ fi
 [ -f aspilog.txt ] && rm aspilog.txt
 
 # aspirer les pages
+command -v wget >/dev/null 2>&1 || { echo >&2 "\nErreur. Installer wget pour faire fonctionner spip_statique. brew install wget\n"; exit 1; }
+
 wget -r -l2 -np -N -p "$source"
 
 # ou sommes nous ?
