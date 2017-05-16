@@ -4,7 +4,6 @@
 # Brut ./spip_statique.sh http://localhost/mon_site/
 # spip_statique http://localhost/mon_site/
 # spip_statique http://localhost/mon_site/ dans/un/repertoire
-# attention pete sans / final TODO
 
 source="$1"
 dest="${2:-}"
@@ -32,7 +31,12 @@ command -v wget >/dev/null 2>&1 || { echo >&2 "\nErreur. Installer wget pour fai
 wget -r -l2 -np -N -p "$source"
 
 # ou sommes nous ?
-racine=$(echo ${1%/*} | sed -e 's,http://,,g' )
+racine=$(echo ${source%/*} | sed -e 's,http://,,g' )
+# s'assurer qu'on a bien un / à la fin
+source=$(echo "$source/" | sed -e 's`//`/`g')
+echo $source
+
+# exit
 
 # nettoyer un peu
 # virer les hash. jquery.colorbox.js?1494445576 -> jquery.colorbox.js
