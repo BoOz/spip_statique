@@ -29,7 +29,7 @@ fi
 # aspirer les pages
 command -v wget >/dev/null 2>&1 || { echo >&2 "\nErreur. Installer wget pour faire fonctionner spip_statique. brew install wget\n"; exit 1; }
 
-wget -r -l2 -np -N -p -e robots=off --adjust-extension "$source"
+wget -r -l2 -np -N -p -e robots=off --adjust-extension --no-check-certificate "$source"
 
 # ou sommes nous ?
 racine=$(echo ${source%/*} | sed -e 's,http://,,g' )
@@ -70,25 +70,16 @@ find . -iname "spip.php?page=*" | while read f ; do
 	(( ${#fichier} > 0 )) && echo "${basename/.html/}	${fichier/${dirname}\//}" >> aspilog.txt
 done
 
-# renommer fichiers spip.php?page=XXX -> XXX.html
-#find . -iname "index.html?page=*" | while read f ; do
-#	dirname=${f%/*}
-#	basename=${f##*/}
-#	fichier=$(echo $dirname/$basename | sed -e 's/index.html?page=//g' )
-#	mv "$f" "$fichier"
-#	# emplacement actuel et nouvel emplacement
-#	#(( ${#fichier} > 0 )) && echo "${basename/.html/}	${fichier/${dirname}\//}"
-#	(( ${#fichier} > 0 )) && echo "${basename/.html/}	${fichier/${dirname}\//}" >> aspilog.txt
-#done
-
-# modifier dans les fichiers les appels à ./?page=XXX -> XXX.html
-#grep -Rl "/?page=*" . | while read fich ; do
-#	[[ $fich == "./aspilog.txt" ]] && continue ;
-#	echo "$fich va etre modifié"
-#	cat "$fich" | sed -e "s:/?page=:/spip.php?page=:g" > "$fich.tmp"
-#	mv "$fich.tmp" "$fich"done
-#done
-
+# renommer fichiers index.html?XXX.html -> XXX.html
+find . -iname "index.html?*" | while read f ; do
+	dirname=${f%/*}
+	basename=${f##*/}
+	fichier=$(echo $f | sed -e 's/index.html?//g' -e 's/page=//g')
+	# mv "$f" "$fichier"
+	# emplacement actuel et nouvel emplacement ?paged=
+	(( ${#fichier} > 0 )) && echo "?${fichier/${dirname}\//}	${fichier/${dirname}\//}"
+	#(( ${#fichier} > 0 )) && echo "?${fichier/${dirname}\//}	${fichier/${dirname}\//}" >> aspilog.txt
+done
 
 # ranger les images.
 for type in jpg gif png ico; do
