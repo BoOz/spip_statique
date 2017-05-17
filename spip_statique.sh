@@ -36,7 +36,18 @@ racine=$(echo ${source%/*} | sed -e 's,http://,,g' )
 source=$(echo "$source/" | sed -e 's`//`/`g')
 echo $source
 
-# exit
+#exit
+
+# recaler les polices malencontreusement passées par --adjust-extension
+# ranger les polices.
+for type in woff2 ; do
+	echo "$type.html > $type"
+	find . -iname "*.$type.html" | while read f ; do
+		vrai_nom=${f/$type.html/$type}
+		echo "$f => $vrai_nom"
+		mv "$f" "$vrai_nom"
+	done
+done
 
 # nettoyer un peu
 # virer les hash. jquery.colorbox.js?1494445576 -> jquery.colorbox.js
@@ -54,7 +65,8 @@ find . -iname "spip.php?page=*" | while read f ; do
 	basename=${f##*/}
 	fichier=$(echo $dirname/$basename | sed -e 's/spip.php?page=//g' )
 	mv "$f" "$fichier"
-	(( ${#fichier} > 0 )) && echo "${f/${dirname}\//}	${fichier/${dirname}\//}" >> aspilog.txt
+	#(( ${#fichier} > 0 )) && echo "${basename/.html/}	${fichier/${dirname}\//}"
+	(( ${#fichier} > 0 )) && echo "${basename/.html/}	${fichier/${dirname}\//}" >> aspilog.txt
 done
 
 # ranger les images.
