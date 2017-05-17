@@ -148,8 +148,8 @@ done
 
 
 # effacer les repertoires vides
+find . -type f -iname '*DS_Store' -delete
 find . -type d -empty -delete
-
 
 echo "Copie terminée"
 ls
