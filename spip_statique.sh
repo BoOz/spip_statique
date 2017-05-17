@@ -28,7 +28,7 @@ fi
 # aspirer les pages
 command -v wget >/dev/null 2>&1 || { echo >&2 "\nErreur. Installer wget pour faire fonctionner spip_statique. brew install wget\n"; exit 1; }
 
-wget -r -l2 -np -N -p "$source"
+wget -r -l2 -np -N -p -e robots=off --adjust-extension "$source"
 
 # ou sommes nous ?
 racine=$(echo ${source%/*} | sed -e 's,http://,,g' )
@@ -52,7 +52,7 @@ done
 find . -iname "spip.php?page=*" | while read f ; do
 	dirname=${f%/*}
 	basename=${f##*/}
-	fichier=$(echo $dirname/$basename.html | sed -e 's/spip.php?page=//g' )
+	fichier=$(echo $dirname/$basename | sed -e 's/spip.php?page=//g' )
 	mv "$f" "$fichier"
 	(( ${#fichier} > 0 )) && echo "${f/${dirname}\//}	${fichier/${dirname}\//}" >> aspilog.txt
 done
