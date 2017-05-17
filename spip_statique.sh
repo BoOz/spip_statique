@@ -2,6 +2,9 @@
 
 # usage :
 # Brut ./spip_statique.sh http://localhost/mon_site/
+
+# Exemples :
+# spip_statique http://localhost/mon_site/ma_page.html
 # spip_statique http://localhost/mon_site/
 # spip_statique http://localhost/mon_site/ dans/un/repertoire
 
