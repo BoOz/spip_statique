@@ -1,9 +1,7 @@
 #!/bin/sh
+# ./spip_statique.sh http://localhost/mon_site/
 
-# usage :
-# Brut ./spip_statique.sh http://localhost/mon_site/
-
-# Exemples :
+# Exemples d'usage :
 # spip_statique http://localhost/mon_site/ma_page.html
 # spip_statique http://localhost/mon_site/
 # spip_statique http://localhost/mon_site/ dans/un/repertoire
@@ -42,7 +40,6 @@ echo $source
 #exit
 
 # recaler les polices malencontreusement passées par --adjust-extension
-# ranger les polices.
 for type in woff2 ; do
 	echo "$type.html > $type"
 	find . -iname "*.$type.html" | while read f ; do
@@ -68,6 +65,7 @@ find . -iname "spip.php?page=*" | while read f ; do
 	basename=${f##*/}
 	fichier=$(echo $dirname/$basename | sed -e 's/spip.php?page=//g' )
 	mv "$f" "$fichier"
+	# emplacement actuel et nouvel emplacement
 	#(( ${#fichier} > 0 )) && echo "${basename/.html/}	${fichier/${dirname}\//}"
 	(( ${#fichier} > 0 )) && echo "${basename/.html/}	${fichier/${dirname}\//}" >> aspilog.txt
 done
