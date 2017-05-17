@@ -58,7 +58,7 @@ find . -iname "spip.php?page=*" | while read f ; do
 done
 
 # ranger les images.
-for type in jpg gif png ; do
+for type in jpg gif png ico; do
 	echo "$type trouvés"
 	find . -iname "*.$type" | while read f ; do
 		basename=${f##*/}
