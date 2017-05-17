@@ -70,6 +70,26 @@ find . -iname "spip.php?page=*" | while read f ; do
 	(( ${#fichier} > 0 )) && echo "${basename/.html/}	${fichier/${dirname}\//}" >> aspilog.txt
 done
 
+# renommer fichiers spip.php?page=XXX -> XXX.html
+#find . -iname "index.html?page=*" | while read f ; do
+#	dirname=${f%/*}
+#	basename=${f##*/}
+#	fichier=$(echo $dirname/$basename | sed -e 's/index.html?page=//g' )
+#	mv "$f" "$fichier"
+#	# emplacement actuel et nouvel emplacement
+#	#(( ${#fichier} > 0 )) && echo "${basename/.html/}	${fichier/${dirname}\//}"
+#	(( ${#fichier} > 0 )) && echo "${basename/.html/}	${fichier/${dirname}\//}" >> aspilog.txt
+#done
+
+# modifier dans les fichiers les appels à ./?page=XXX -> XXX.html
+#grep -Rl "/?page=*" . | while read fich ; do
+#	[[ $fich == "./aspilog.txt" ]] && continue ;
+#	echo "$fich va etre modifié"
+#	cat "$fich" | sed -e "s:/?page=:/spip.php?page=:g" > "$fich.tmp"
+#	mv "$fich.tmp" "$fich"done
+#done
+
+
 # ranger les images.
 for type in jpg gif png ico; do
 	echo "$type trouvés"
