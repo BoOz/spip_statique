@@ -26,21 +26,21 @@ fi
 # Fichier log pour les transformations des pages.
 [ -f aspilog.txt ] && rm aspilog.txt
 
+# ou sommes nous ?
+# s'assurer qu'on a bien un / à la fin
+source=$(echo "$source/" | sed -e 's`//$`/`g')
+racine=$(echo ${source%/*} | sed -e 's,http://,,g' | sed -e 's,https://,,g' )
+echo "$source > $racine"
+
 # aspirer les pages
 command -v wget >/dev/null 2>&1 || { echo >&2 "\nErreur. Installer wget pour faire fonctionner spip_statique. brew install wget\n"; exit 1; }
 
 wget -r -l2 -np -N -p -e robots=off --adjust-extension --no-check-certificate "$source"
 
-# ou sommes nous ?
-racine=$(echo ${source%/*} | sed -e 's,http://,,g' )
-# s'assurer qu'on a bien un / à la fin
-source=$(echo "$source/" | sed -e 's`//`/`g')
-echo $source
-
 #exit
 
 # recaler les polices malencontreusement passées par --adjust-extension
-for type in woff2 ; do
+for type in eot ttf woff woff2 ; do
 	echo "$type.html > $type"
 	find . -iname "*.$type.html" | while read f ; do
 		vrai_nom=${f/$type.html/$type}
@@ -75,11 +75,13 @@ find . -iname "index.html?*" | while read f ; do
 	dirname=${f%/*}
 	basename=${f##*/}
 	fichier=$(echo $f | sed -e 's/index.html?//g' -e 's/page=//g')
-	# mv "$f" "$fichier"
+	mv "$f" "$fichier"
 	# emplacement actuel et nouvel emplacement ?paged=
 	(( ${#fichier} > 0 )) && echo "?${fichier/${dirname}\//}	${fichier/${dirname}\//}"
 	#(( ${#fichier} > 0 )) && echo "?${fichier/${dirname}\//}	${fichier/${dirname}\//}" >> aspilog.txt
 done
+
+# mode clean a passer en option
 
 # ranger les images.
 for type in jpg gif png ico; do
