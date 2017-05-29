@@ -51,8 +51,9 @@ done
 
 # nettoyer un peu
 # virer les hash. jquery.colorbox.js?1494445576 -> jquery.colorbox.js
-find . -type f -regex ".*?[0-9]*" | while read f ; do
-	fichier_propre=$(echo $f | sed -e 's/[0-9]//g' -e 's/?//g')
+# local/cache-vignettes/L400xH282/ChampsExtras2-3ce9f.png?1484461418 
+find . -type f -regex ".*?[0-9][0-9]*$" | while read f ; do
+	fichier_propre=$(echo $f | sed -e 's/[0-9][0-9]*$//g' -e 's/?//g')
 	mv "$f" "$fichier_propre"
 	emplacement_actuel=$(echo ${f/$racine\//} | sed -e 's:\./::g')
 	nouvel_emplacement=$(echo ${fichier_propre/$racine\//} | sed -e 's:\./::g')
