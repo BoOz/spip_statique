@@ -33,11 +33,15 @@ racine=$(echo ${source%/*} | sed -e 's,http://,,g' | sed -e 's,https://,,g' )
 echo "$source > $racine"
 
 # aspirer les pages
+# http://www.thegeekstuff.com/2009/09/the-ultimate-wget-download-guide-with-15-awesome-examples
+# 
+
+
 command -v wget >/dev/null 2>&1 || { echo >&2 "\nErreur. Installer wget pour faire fonctionner spip_statique. brew install wget\n"; exit 1; }
 
-wget -r -l5 -np -N -p -e robots=off --adjust-extension --no-check-certificate "$source"
+wget -m -l5 --tries=5 -N -p -e robots=off --adjust-extension --no-check-certificate "$source"
 
-#exit
+# exit
 
 # recaler les polices malencontreusement passées par --adjust-extension
 for type in eot ttf woff woff2 ; do
