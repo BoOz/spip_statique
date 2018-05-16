@@ -86,6 +86,19 @@ find . -iname "index.html?*" | while read f ; do
 	#(( ${#fichier} > 0 )) && echo "?${fichier/${dirname}\//}	${fichier/${dirname}\//}" >> aspilog.txt
 done
 
+# renommer fichiers spip.php?XXX.html -> XXX.html
+find . -iname "spip.php?*" | while read f ; do
+	dirname=${f%/*}
+	basename=${f##*/}
+	fichier=$(echo $f | sed -e 's/spip.php?//g')
+	mv "$f" "$fichier"
+	# emplacement actuel et nouvel emplacement
+	echo "${basename/.html/} ${fichier##*/}"
+	
+	(( ${#fichier} > 0 )) && echo "${basename/.html/}	${fichier##*/}"
+	(( ${#fichier} > 0 )) && echo "${basename/.html/}	${fichier##*/}" >> aspilog.txt
+done
+
 # mode clean a passer en option
 
 # ranger les images.
