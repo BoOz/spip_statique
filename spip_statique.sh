@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # ./spip_statique.sh http://localhost/mon_site/
 
 # Exemples d'usage :
