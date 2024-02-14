@@ -53,6 +53,15 @@ for type in eot ttf woff woff2 ; do
 	done
 done
 
+# recaler les css malencontreusement passées par --adjust-extension
+for type in css ; do
+	find . -type f -regex ".*?[0-9][0-9]*\.css$" | while read f ; do
+		css_propre=$(echo $f | sed -e 's/[0-9][0-9]*\.css$//g' -e 's/?//g')
+		echo "$f => $css_propre"
+		mv "$f" "$css_propre"
+	done
+done
+
 # nettoyer un peu
 # virer les hash. jquery.colorbox.js?1494445576 -> jquery.colorbox.js
 # local/cache-vignettes/L400xH282/ChampsExtras2-3ce9f.png?1484461418 
