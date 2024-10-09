@@ -1,6 +1,8 @@
 # spip_statique
 Transformer un site SPIP en site statique (HTML/CSS/JS).
 
+Ce projet a déménagé sur https://git.spip.net/booz/spip_statique
+
 ## Usage
 
 Choisir dans le terminal un répertoire où copier un site. 
