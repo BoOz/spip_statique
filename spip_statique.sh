@@ -9,6 +9,12 @@
 source="$1"
 dest="${2:-}"
 
+# check user input
+if [ -z $source ]; then
+    echo "usage: $0 URL <target directory optionnal>"
+    exit
+fi
+
 # Eventuel repertoire cible en second parametre
 if [[ $dest != "" ]] ; then
 	echo "$source > $dest"
